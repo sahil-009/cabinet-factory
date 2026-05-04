@@ -81,16 +81,17 @@ const Contact = () => {
           <aside className="rounded-[2rem] bg-secondary/60 border border-border p-6 md:p-10 h-full">
             <h3 className="font-serif text-2xl">Studio</h3>
             <ul className="mt-5 space-y-4 text-sm">
-              <li className="flex gap-3"><MapPin className="h-5 w-5 text-accent shrink-0" /> 14 Atelier Lane, Lisbon, Portugal</li>
-              <li className="flex gap-3"><Phone className="h-5 w-5 text-accent shrink-0" /> +351 910 000 000</li>
-              <li className="flex gap-3"><Mail className="h-5 w-5 text-accent shrink-0" /> hello@cabinetfactory.co</li>
+              <li className="flex gap-3"><MapPin className="h-5 w-5 text-accent shrink-0" /> Furnitt Design Studio, Bangalore, Karnataka</li>
+              <li className="flex gap-3"><Phone className="h-5 w-5 text-accent shrink-0" /> +91 910 000 0000</li>
+              <li className="flex gap-3"><Mail className="h-5 w-5 text-accent shrink-0" /> hello@cabinetfactory.in</li>
             </ul>
             <div className="mt-6 rounded-2xl overflow-hidden border border-border">
               <iframe
-                title="Map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-9.16%2C38.70%2C-9.10%2C38.74&layer=mapnik"
+                title="Furnitt Design Studio, Bangalore"
+                src="https://maps.google.com/maps?q=12.9227683,77.584702&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-[260px]"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
             <p className="mt-4 text-xs text-muted-foreground">Visits by appointment, Tuesday to Saturday.</p>
