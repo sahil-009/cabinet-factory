@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cabinet Factory — luxury cabinet manufacturer design system.
+   All colors HSL. Earthy olive / warm wood / off-white palette. */
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 39 33% 96%;          /* warm off-white */
+    --foreground: 30 14% 12%;          /* deep charcoal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 14% 12%;
+
+    --popover: 39 33% 97%;
+    --popover-foreground: 30 14% 12%;
+
+    /* Brand */
+    --primary: 75 27% 23%;             /* deep olive */
+    --primary-foreground: 39 33% 96%;
+    --primary-glow: 75 22% 38%;
+
+    --secondary: 36 30% 90%;           /* soft beige */
+    --secondary-foreground: 30 14% 12%;
+
+    --muted: 36 25% 92%;
+    --muted-foreground: 30 8% 38%;
+
+    --accent: 17 60% 47%;              /* terracotta */
+    --accent-foreground: 39 33% 96%;
+
+    --wood: 28 32% 42%;                /* warm taupe wood */
+    --wood-foreground: 39 33% 96%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 39 33% 96%;
+
+    --border: 30 15% 86%;
+    --input: 30 15% 86%;
+    --ring: 75 27% 23%;
+
+    --radius: 1rem;
+
+    /* Gradients & shadows */
+    --gradient-warm: radial-gradient(1200px 600px at 80% 0%, hsl(17 60% 47% / 0.10), transparent 60%),
+                     radial-gradient(900px 500px at 0% 100%, hsl(75 27% 23% / 0.10), transparent 60%);
+    --shadow-soft: 0 10px 40px -20px hsl(30 14% 12% / 0.25);
+    --shadow-elegant: 0 30px 80px -40px hsl(75 27% 23% / 0.35);
+    --shadow-glow: 0 0 0 1px hsl(17 60% 47% / 0.18), 0 12px 30px -10px hsl(17 60% 47% / 0.35);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 39 33% 96%;
+    --sidebar-foreground: 30 14% 12%;
+    --sidebar-primary: 75 27% 23%;
+    --sidebar-primary-foreground: 39 33% 96%;
+    --sidebar-accent: 36 30% 90%;
+    --sidebar-accent-foreground: 30 14% 12%;
+    --sidebar-border: 30 15% 86%;
+    --sidebar-ring: 75 27% 23%;
+  }
+
+  .dark {
+    --background: 30 14% 8%;
+    --foreground: 39 33% 94%;
+    --card: 30 14% 10%;
+    --card-foreground: 39 33% 94%;
+    --popover: 30 14% 10%;
+    --popover-foreground: 39 33% 94%;
+    --primary: 75 22% 65%;
+    --primary-foreground: 30 14% 8%;
+    --secondary: 30 10% 16%;
+    --secondary-foreground: 39 33% 94%;
+    --muted: 30 10% 16%;
+    --muted-foreground: 36 12% 70%;
+    --accent: 17 65% 55%;
+    --accent-foreground: 30 14% 8%;
+    --wood: 28 32% 55%;
+    --wood-foreground: 30 14% 8%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 75 22% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #d4713e #1a1410;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    cursor: none;
+  }
+  /* Hide native cursor everywhere */
+  *, *::before, *::after { cursor: none !important; }
+
+  /* Custom webkit scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #1a1410; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f2cc7a, #d4713e, #8c3c1e);
+    border-radius: 2px;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-narrow { @apply container max-w-6xl; }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground font-medium;
+  }
+  .glass {
+    background: hsl(var(--background) / 0.65);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+  }
+}
+
+@layer utilities {
+  .bg-warm { background-image: var(--gradient-warm); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--transition-smooth), transform 0.9s var(--transition-smooth); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
