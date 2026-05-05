@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /home/sahil/Downloads/cabinet-factory remote add origin https://github.com/sahil-009/cabinet-elegance.git)",
+      "Bash(git -C /home/sahil/Downloads/cabinet-factory remote -v)"
+    ]
+  }
+}
