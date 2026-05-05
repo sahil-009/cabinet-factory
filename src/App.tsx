@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -22,11 +22,17 @@ const InnerApp = () => {
   // Always show loader on every page load / reload
   const [showLoader, setShowLoader] = useState(true);
 
-  // Exit animation starts → hero can begin animating underneath
   const handleLoaderReady = () => markIntroReady();
-
-  // Exit animation fully done → safe to unmount loader from DOM
   const handleLoaderDone = () => setShowLoader(false);
+
+  // Fallback: ensure loader always clears even if GSAP stalls in production
+  useEffect(() => {
+    const id = setTimeout(() => {
+      markIntroReady();
+      setShowLoader(false);
+    }, 7000);
+    return () => clearTimeout(id);
+  }, []);
 
   return (
     <>

@@ -155,7 +155,7 @@ export const Hero3DBackground = () => {
         const phase = t * 0.006 * (0.4 + i * 0.15) + i * 1.9;
         const ox = W * (0.2 + 0.6 * ((Math.sin(phase) + 1) / 2));
         const oy = H * (0.1 + 0.55 * ((Math.cos(phase * 0.7 + i) + 1) / 2));
-        const or = 35 + 50 * Math.sin(phase * 0.4 + i);
+        const or = Math.max(1, 35 + 50 * Math.sin(phase * 0.4 + i));
 
         const grad = ctx.createRadialGradient(ox, oy, 0, ox, oy, or);
         grad.addColorStop(0, i % 2 === 0 ? terraAlpha(0.05) : oliveAlpha(0.04));
