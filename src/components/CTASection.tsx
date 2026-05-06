@@ -71,7 +71,7 @@ export const CTASection = () => {
     <section ref={sectionRef} className="container py-20 md:py-28">
       <div
         ref={cardRef}
-        className="relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground p-10 md:p-16 shadow-elegant"
+        className="relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground p-10 pb-32 md:p-16 shadow-elegant"
         style={{ opacity: 0 }}
       >
         {/* Animated orbs */}
@@ -153,21 +153,26 @@ export const CTASection = () => {
 
         {/* ── Right side: 3D Model ── */}
         <div 
-          className="absolute right-[0%] bottom-[0%] w-full sm:w-[35%] h-[280px] sm:h-[420px] pointer-events-none z-20 overflow-visible"
+          className="absolute right-4 bottom-4 w-[150px] sm:w-[220px] md:w-[300px] h-[170px] sm:h-[260px] md:h-[360px] pointer-events-none z-20 overflow-visible"
         >
           {/* Inner glow for the model */}
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/5 blur-[120px] pointer-events-none opacity-40" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/10 blur-[60px] pointer-events-none opacity-40" 
           />
           
           <Suspense fallback={null}>
             <ErrorBoundary fallback={null}>
               <Canvas
-                camera={{ fov: 45 }}
+                camera={{ fov: 40, position: [2, 1, 5] }}
                 gl={{ antialias: true, alpha: true }}
                 className="w-full h-full"
               >
-                <ModelViewer modelPath="/models/newoutput.glb" scale={0.85} />
+                <ModelViewer 
+                  modelPath="/models/newoutput.glb" 
+                  scale={0.85} 
+                  position={[0, -0.6, 0]}
+                  rotation={[0, 0, 0]}
+                />
               </Canvas>
             </ErrorBoundary>
           </Suspense>

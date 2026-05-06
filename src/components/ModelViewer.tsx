@@ -14,9 +14,16 @@ dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5
 interface ModelViewerProps {
   modelPath: string;
   scale?: number;
+  position?: [number, number, number];
+  rotation?: [number, number, number];
 }
 
-export const ModelViewer = ({ modelPath, scale = 1 }: ModelViewerProps) => {
+export const ModelViewer = ({ 
+  modelPath, 
+  scale = 1, 
+  position = [0, 0, 0],
+  rotation = [0, -0.5, 0] 
+}: ModelViewerProps) => {
   const { gl } = useThree();
   
   // Create and configure KTX2 loader in a stable way
@@ -77,7 +84,7 @@ export const ModelViewer = ({ modelPath, scale = 1 }: ModelViewerProps) => {
 
   return (
     <>
-      <primitive object={scene} scale={scale} />
+      <primitive object={scene} scale={scale} position={position} rotation={rotation} />
       {glbCam instanceof THREE.PerspectiveCamera ? (
         <PerspectiveCamera
           makeDefault
@@ -88,13 +95,12 @@ export const ModelViewer = ({ modelPath, scale = 1 }: ModelViewerProps) => {
           far={glbCam.far}
         />
       ) : (
-        <PerspectiveCamera makeDefault position={[0, 0.5, 3]} fov={40} />
+        <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={40} />
       )}
-      <ambientLight intensity={2} />
-      <directionalLight position={[10, 20, 10]} intensity={2.5} />
-      <pointLight position={[-10, 5, -10]} intensity={1.5} color="#ffccaa" />
+      <ambientLight intensity={2.5} />
+      <directionalLight position={[10, 20, 10]} intensity={3} />
+      <pointLight position={[-10, 5, -10]} intensity={2} color="#ffccaa" />
       <Environment preset="city" />
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
     </>
   );
 };
