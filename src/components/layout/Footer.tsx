@@ -1,8 +1,37 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Pinterest, MapPin, Phone, Mail, Clock } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, PerspectiveCamera } from "@react-three/drei";
+import * as THREE from "three";
+import ErrorBoundary from "../ErrorBoundary";
+
+// A very simple, low-poly cabinet for the footer to avoid lag
+function SimpleCabinet() {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.005;
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} castShadow receiveShadow>
+      {/* A stylized "cabinet" box */}
+      <boxGeometry args={[1.5, 2, 1.2]} />
+      <meshStandardMaterial color="#2d2218" roughness={0.3} metalness={0.2} />
+      {/* Decorative handle/line */}
+      <mesh position={[0.76, 0, 0]} scale={[0.02, 1.8, 0.1]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#c08457" />
+      </mesh>
+    </mesh>
+  );
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +73,7 @@ const socialLinks = [
     ),
   },
 ];
+
 
 export const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -88,7 +118,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative overflow-hidden mt-24">
+    <footer ref={footerRef} className="relative overflow-hidden">
 
       {/* ── Decorative background ── */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
@@ -164,25 +194,12 @@ export const Footer = () => {
             </h2>
           </div>
 
-          {/* Center: 3-D decorative orb blob */}
+          {/* Center: Removed 3D Model as requested */}
           <div
-            className="relative hidden md:flex items-center justify-center shrink-0"
-            style={{ width: "120px", height: "120px" }}
+            className="hidden sm:flex items-center justify-center shrink-0 w-auto"
+            style={{ width: "clamp(120px, 15vw, 200px)", height: "80px" }}
           >
-            {/* Outer glow ring */}
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{ background: "radial-gradient(circle, hsl(17 40% 28% / 0.6) 0%, transparent 70%)", filter: "blur(16px)" }}
-            />
-            {/* Inner blob */}
-            <div
-              className="relative rounded-[45%_55%_60%_40%/50%_45%_55%_50%] animate-[blob_8s_ease-in-out_infinite]"
-              style={{
-                width: "90px", height: "90px",
-                background: "radial-gradient(135deg at 30% 30%, hsl(17 45% 38%) 0%, hsl(17 30% 18%) 60%, #0e0a08 100%)",
-                boxShadow: "inset -8px -8px 20px rgba(0,0,0,0.5), inset 4px 4px 12px hsl(17 60% 50% / 0.15), 0 8px 32px hsl(17 50% 30% / 0.35)",
-              }}
-            />
+            <div className="w-px h-12 bg-white/10 mx-auto" />
           </div>
 
           {/* Right: CTA button + note */}
@@ -234,7 +251,7 @@ export const Footer = () => {
             </p>
 
             {/* Social icons */}
-            <div className="flex items-center gap-2.5 mt-6">
+            <div className="flex items-center gap-2.5 mt-6 mb-6">
               {socialLinks.map(({ Icon, label, href, svg }) => (
                 <a
                   key={label}
@@ -245,6 +262,16 @@ export const Footer = () => {
                   {svg ? svg : Icon ? <Icon className="h-4 w-4" /> : null}
                 </a>
               ))}
+            </div>
+
+            {/* Simple 3D accent in footer column */}
+            <div className="h-24 w-full opacity-50 hover:opacity-100 transition-opacity duration-500">
+               <Suspense fallback={null}>
+                  <Canvas camera={{ position: [0, 0, 4], fov: 40 }}>
+                    <ambientLight intensity={1} />
+                    <SimpleCabinet />
+                  </Canvas>
+               </Suspense>
             </div>
 
             {/* Since badge */}
@@ -263,7 +290,7 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-3.5">
               {navLinks.map(([label, href]) => (
-                <li key={href}>
+                <li key={label}>
                   <Link
                     to={href}
                     className="group flex items-center gap-1.5 text-sm text-white/55 hover:text-accent transition-colors duration-200"
