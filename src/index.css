@@ -135,6 +135,13 @@
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes blob {
+  0%, 100% { border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%; transform: rotate(0deg) scale(1); }
+  25%       { border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%; transform: rotate(3deg) scale(1.04); }
+  50%       { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; transform: rotate(-2deg) scale(0.97); }
+  75%       { border-radius: 60% 40% 45% 55% / 40% 60% 40% 60%; transform: rotate(4deg) scale(1.02); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

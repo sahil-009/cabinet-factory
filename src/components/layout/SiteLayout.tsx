@@ -6,6 +6,8 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { PageTransition } from "@/components/PageTransition";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ReadyToTransform } from "@/components/ReadyToTransform";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
@@ -15,15 +17,18 @@ export const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <CustomCursor />
-      <ScrollProgress />
-      <PageTransition />
-      <Navbar />
-      <main key={pathname} className="flex-1 pt-24">
-        {children}
-      </main>
-      <Footer />
-      <WhatsAppButton />
+      <ErrorBoundary>
+        <CustomCursor />
+        <ScrollProgress />
+        <PageTransition />
+        <Navbar />
+        <main key={pathname} className="flex-1 pt-24">
+          {children}
+        </main>
+        <ReadyToTransform />
+        <Footer />
+        <WhatsAppButton />
+      </ErrorBoundary>
     </div>
   );
 };

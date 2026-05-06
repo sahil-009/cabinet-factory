@@ -4,8 +4,13 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import { ModelViewer, preloadModel } from "./ModelViewer";
+import ErrorBoundary from "./ErrorBoundary";
 
 gsap.registerPlugin(ScrollTrigger);
+preloadModel("/models/newoutput.glb");
 
 export const CTASection = () => {
   const sectionRef  = useRef<HTMLElement>(null);
@@ -80,7 +85,7 @@ export const CTASection = () => {
         {/* Ghost "CF" monogram */}
         <span className="absolute pointer-events-none select-none font-serif leading-none tracking-tighter"
           style={{ fontSize: "clamp(120px, 28vw, 400px)", right: "-0.04em", bottom: "-0.15em",
-            color: "hsl(var(--primary-foreground)/0.04)", letterSpacing: "-0.05em" }}>
+            color: "hsl(var(--primary-foreground)/0.02)", letterSpacing: "-0.05em" }}>
           CF
         </span>
 
@@ -144,6 +149,28 @@ export const CTASection = () => {
               <Link to="/process">See How It Works</Link>
             </Button>
           </div>
+        </div>
+
+        {/* ── Right side: 3D Model ── */}
+        <div 
+          className="absolute right-[0%] bottom-[0%] w-full sm:w-[35%] h-[280px] sm:h-[420px] pointer-events-none z-20 overflow-visible"
+        >
+          {/* Inner glow for the model */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/5 blur-[120px] pointer-events-none opacity-40" 
+          />
+          
+          <Suspense fallback={null}>
+            <ErrorBoundary fallback={null}>
+              <Canvas
+                camera={{ fov: 45 }}
+                gl={{ antialias: true, alpha: true }}
+                className="w-full h-full"
+              >
+                <ModelViewer modelPath="/models/newoutput.glb" scale={0.85} />
+              </Canvas>
+            </ErrorBoundary>
+          </Suspense>
         </div>
       </div>
     </section>
