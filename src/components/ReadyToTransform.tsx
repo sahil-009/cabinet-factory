@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -76,6 +76,7 @@ const STICKERS = [
 ];
 
 export const ReadyToTransform = () => {
+  const location = useLocation();
   const sectionRef  = useRef<HTMLElement>(null);
   const headingRef  = useRef<HTMLDivElement>(null);
   const stickerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -94,7 +95,7 @@ export const ReadyToTransform = () => {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%", // Triggers sooner when scrolling down
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none none",
           },
         },
       );
@@ -140,10 +141,12 @@ export const ReadyToTransform = () => {
           delay: 0.1 * i,
         });
       });
+      /* Force a refresh after a short delay to account for page transitions/image loads */
+      setTimeout(() => ScrollTrigger.refresh(), 500);
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [location.pathname]);
 
   return (
     <section

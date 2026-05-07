@@ -42,16 +42,13 @@ export const Navbar = () => {
     const wrapper = linkWrapperRefs.current[activeIdx];
     if (!wrapper) return;
 
-    const cRect = container.getBoundingClientRect();
-    const wRect = wrapper.getBoundingClientRect();
-
     gsap.to(indicator, {
-      x: wRect.left - cRect.left,
-      width: wRect.width,
+      x: wrapper.offsetLeft,
+      width: wrapper.offsetWidth,
       duration: 0.45,
       ease: "power3.out",
     });
-  }, [location.pathname]);
+  }, [location.pathname, scrolled]);
 
   return (
     <header
@@ -90,7 +87,7 @@ export const Navbar = () => {
           {/* Sliding accent indicator */}
           <div
             ref={indicatorRef}
-            className="absolute top-1.5 h-[calc(100%-12px)] rounded-full pointer-events-none"
+            className="absolute left-0 top-1.5 h-[calc(100%-12px)] rounded-full pointer-events-none"
             style={{
               background: "hsl(17 60% 47% / 0.1)",
               border: "1px solid hsl(17 60% 47% / 0.25)",
