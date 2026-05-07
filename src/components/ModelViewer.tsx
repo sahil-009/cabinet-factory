@@ -97,10 +97,10 @@ export const ModelViewer = ({
       ) : (
         <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={40} />
       )}
-      <ambientLight intensity={2.5} />
-      <directionalLight position={[10, 20, 10]} intensity={3} />
-      <pointLight position={[-10, 5, -10]} intensity={2} color="#ffccaa" />
-      <Environment preset="city" />
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[10, 20, 10]} intensity={1.2} />
+      <pointLight position={[-10, 5, -10]} intensity={0.8} color="#ffccaa" />
+      <Environment preset="apartment" />
     </>
   );
 };
