@@ -88,7 +88,6 @@
 @layer base {
   * { @apply border-border; }
   html {
-    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #d4713e #1a1410;
   }
