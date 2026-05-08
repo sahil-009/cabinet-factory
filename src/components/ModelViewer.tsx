@@ -56,7 +56,7 @@ export const ModelViewer = ({
             child.material.metalness = 0.8;
           } else if (name.includes('glass') || name.includes('transp')) {
             child.material.transparent = true;
-            child.material.opacity = 0.4;
+            child.material.opacity = 0.8;
             child.material.color.set('#a0d8ef');
           }
         }
