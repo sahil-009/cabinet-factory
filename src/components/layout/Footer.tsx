@@ -76,7 +76,7 @@ function SimpleCabinet() {
           roughness={0.05} 
           metalness={0.6} 
           transparent 
-          opacity={0.85} 
+          opacity={0.98} 
         />
       </mesh>
       
@@ -108,8 +108,8 @@ function SimpleCabinet() {
           roughness={0.02} 
           metalness={0.1} 
           transparent 
-          opacity={0.95}
-          transmission={0.5}
+          opacity={0.98}
+          transmission={0.3}
           thickness={0.5}
         />
       </mesh>
@@ -124,7 +124,7 @@ function SimpleCabinet() {
               color="#f8f8f8" 
               roughness={0.1} 
               transparent 
-              opacity={0.85} 
+              opacity={0.95} 
             />
           </mesh>
           {/* Solid Gold Handle */}
