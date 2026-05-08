@@ -1,6 +1,2 @@
-# Welcome to your Lovable project
+# cabinet-factory
 
-TODO: Document your project here
-# cabinet-factory
-# cabinet-factory
-# cabinet-factory
