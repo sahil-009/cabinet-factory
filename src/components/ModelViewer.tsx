@@ -18,14 +18,14 @@ interface ModelViewerProps {
   rotation?: [number, number, number];
 }
 
-export const ModelViewer = ({ 
-  modelPath, 
-  scale = 1, 
+export const ModelViewer = ({
+  modelPath,
+  scale = 1,
   position = [0, 0, 0],
-  rotation = [0, -0.5, 0] 
+  rotation = [0, -0.5, 0]
 }: ModelViewerProps) => {
   const { gl } = useThree();
-  
+
   // Create and configure KTX2 loader in a stable way
   const ktx2 = useMemo(() => {
     const loader = new KTX2Loader();
@@ -47,7 +47,7 @@ export const ModelViewer = ({
         if (!child.material.map) {
           child.material.roughness = 0.4;
           child.material.metalness = 0.3;
-          
+
           const name = child.name.toLowerCase();
           if (name.includes('wood') || name.includes('oak') || name.includes('walnut')) {
             child.material.color.set('#5d4037'); // Warm wood tone
@@ -63,10 +63,10 @@ export const ModelViewer = ({
       }
     });
   }, [scene]);
-  
+
   // Handle animations - attach to the scene itself for better compatibility
   const { actions, names } = useAnimations(animations, scene);
-  
+
   useEffect(() => {
     if (actions && names.length > 0) {
       console.log(`ModelViewer: Playing ${names.length} animations for ${modelPath}`);

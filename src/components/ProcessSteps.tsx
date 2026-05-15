@@ -34,7 +34,7 @@ const steps = [
 
 export const ProcessSteps = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef   = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

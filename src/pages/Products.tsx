@@ -214,7 +214,7 @@ const Products = () => {
                     src={p.img}
                     alt={p.title}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1100ms] ease-smooth group-hover:scale-[1.07]"
+                    className="h-full w-full object-cover transition-transform duration-\\[1100ms\\] ease-smooth group-hover:scale-[1.07]"
                   />
                   {/* Hover shimmer */}
                   <div

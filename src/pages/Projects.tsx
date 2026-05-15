@@ -3,6 +3,8 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { CTASection } from "@/components/CTASection";
 
 const projects = [
+  { img: "/transition2.gif",      title: "Hero Transition",       place: "Demo" },
+  { img: "/floorplan.png",        title: "Floorplan Design",      place: "Concept" },
   { img: "/indian_kitchen.png",      title: "Modern Kitchen Suite",  place: "Bangalore, IN" },
   { img: "/indian_dining.png",       title: "Dining Room",           place: "Mumbai, IN" },
   { img: "/indian_bedroom.png",      title: "Master Bedroom",        place: "Delhi, IN" },
@@ -74,7 +76,7 @@ const Projects = () => (
                   src={p.img}
                   alt={p.title}
                   loading="lazy"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-[1200ms] ease-smooth group-hover:scale-[1.06]"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-\\[1200ms\\] ease-smooth group-hover:scale-[1.06]"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-foreground/70 to-transparent text-background">
                   <div className="font-serif text-xl">{p.title}</div>

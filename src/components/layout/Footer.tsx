@@ -1,11 +1,8 @@
-import { useEffect, useRef, Suspense, useState, useMemo } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, PerspectiveCamera } from "@react-three/drei";
-import * as THREE from "three";
 import ErrorBoundary from "../ErrorBoundary";
 
 
@@ -49,117 +46,6 @@ const socialLinks = [
     ),
   },
 ];
-
-function SimpleCabinet() {
-  const gradientTexture = useMemo(() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 256;
-    canvas.height = 256;
-    const ctx = canvas.getContext('2d')!;
-    const grad = ctx.createLinearGradient(0, 0, 0, 256);
-    grad.addColorStop(0, '#ffffff');
-    grad.addColorStop(1, '#f7e1d1'); // Soft champagne/peach gradient
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 256, 256);
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    return texture;
-  }, []);
-
-  return (
-    <group>
-      {/* Main Cabinet Body - Glassy Black */}
-      <mesh castShadow receiveShadow>
-        <boxGeometry args={[1.6, 2, 1.1]} />
-        <meshStandardMaterial 
-          color="#1a1a1a" 
-          roughness={0.05} 
-          metalness={0.6} 
-          transparent 
-          opacity={0.98} 
-        />
-      </mesh>
-      
-      {/* Subtle Golden Accents */}
-      <group scale={[1, 1, 1]}>
-        <mesh position={[0, 1, 0.555]}>
-          <boxGeometry args={[1.6, 0.015, 0.015]} />
-          <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
-        </mesh>
-        <mesh position={[0, -1, 0.555]}>
-          <boxGeometry args={[1.6, 0.015, 0.015]} />
-          <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
-        </mesh>
-        <mesh position={[0.8, 0, 0.555]}>
-          <boxGeometry args={[0.015, 2, 0.015]} />
-          <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
-        </mesh>
-        <mesh position={[-0.8, 0, 0.555]}>
-          <boxGeometry args={[0.015, 2, 0.015]} />
-          <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
-        </mesh>
-      </group>
-      
-      {/* Premium Gradient Aesthetic Glass Countertop */}
-      <mesh position={[0, 1.05, 0]} castShadow>
-        <boxGeometry args={[1.7, 0.1, 1.2]} />
-        <meshPhysicalMaterial 
-          map={gradientTexture}
-          roughness={0.02} 
-          metalness={0.1} 
-          transparent 
-          opacity={0.98}
-          transmission={0.3}
-          thickness={0.5}
-        />
-      </mesh>
-      
-      {/* Drawer Sections - Glassy White */}
-      {[0.45, -0.05, -0.55].map((y, i) => (
-        <group key={i} position={[0, y, 0.56]}>
-          {/* Drawer Panel - Glassy White */}
-          <mesh castShadow>
-            <boxGeometry args={[1.45, 0.4, 0.05]} />
-            <meshStandardMaterial 
-              color="#f8f8f8" 
-              roughness={0.1} 
-              transparent 
-              opacity={0.95} 
-            />
-          </mesh>
-          {/* Solid Gold Handle */}
-          <mesh position={[0, 0, 0.04]} scale={[0.4, 0.04, 0.04]}>
-            <boxGeometry />
-            <meshStandardMaterial color="#f0c674" metalness={1} roughness={0.1} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Recessed Base (Toe Kick) */}
-      <mesh position={[0, -0.95, 0]}>
-        <boxGeometry args={[1.6, 0.1, 1]} />
-        <meshStandardMaterial color="#0a0a0a" />
-      </mesh>
-    </group>
-  );
-}
-
-function RotatingModel() {
-  const groupRef = useRef<THREE.Group>(null);
-  
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.005;
-      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.05;
-    }
-  });
-
-  return (
-    <group ref={groupRef}>
-      <SimpleCabinet />
-    </group>
-  );
-}
 
 export const Footer = () => {
   const location = useLocation();
@@ -283,23 +169,7 @@ export const Footer = () => {
             </h2>
           </div>
 
-          {/* Center: 3D Model Item */}
-          <div
-            className="hidden sm:flex items-center justify-center shrink-0 overflow-visible"
-            style={{ width: "clamp(160px, 20vw, 240px)", height: "180px" }}
-          >
-            <Suspense fallback={null}>
-              <Canvas camera={{ position: [0, 0, 4.5], fov: 35 }}>
-                <ambientLight intensity={0.6} />
-                <pointLight position={[5, 5, 5]} intensity={1.5} />
-                <spotLight position={[-5, 10, 5]} intensity={2} angle={0.3} penumbra={1} castShadow />
-                <pointLight position={[-3, -3, 2]} intensity={1} color="#ffccaa" />
-                <directionalLight position={[0, 5, -5]} intensity={0.8} />
-                <Environment preset="apartment" />
-                <RotatingModel />
-              </Canvas>
-            </Suspense>
-          </div>
+
 
           {/* Right: CTA button + note */}
           <div className="relative z-10 flex flex-col items-center sm:items-end gap-3 shrink-0">

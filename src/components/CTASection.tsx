@@ -13,13 +13,13 @@ gsap.registerPlugin(ScrollTrigger);
 preloadModel("/models/newoutput.glb");
 
 export const CTASection = () => {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const cardRef     = useRef<HTMLDivElement>(null);
-  const headingRef  = useRef<HTMLHeadingElement>(null);
-  const paraRef     = useRef<HTMLParagraphElement>(null);
-  const btnRef      = useRef<HTMLDivElement>(null);
-  const orb1Ref     = useRef<HTMLDivElement>(null);
-  const orb2Ref     = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const paraRef = useRef<HTMLParagraphElement>(null);
+  const btnRef = useRef<HTMLDivElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -76,16 +76,22 @@ export const CTASection = () => {
       >
         {/* Animated orbs */}
         <div ref={orb1Ref} className="absolute pointer-events-none"
-          style={{ width: "55vw", height: "55vw", borderRadius: "50%", top: "-25%", right: "-15%",
-            background: "radial-gradient(circle, hsl(17 60% 47% / 0.22) 0%, transparent 65%)" }} />
+          style={{
+            width: "55vw", height: "55vw", borderRadius: "50%", top: "-25%", right: "-15%",
+            background: "radial-gradient(circle, hsl(17 60% 47% / 0.22) 0%, transparent 65%)"
+          }} />
         <div ref={orb2Ref} className="absolute pointer-events-none"
-          style={{ width: "35vw", height: "35vw", borderRadius: "50%", bottom: "-20%", left: "-5%",
-            background: "radial-gradient(circle, hsl(17 60% 47% / 0.14) 0%, transparent 65%)" }} />
+          style={{
+            width: "35vw", height: "35vw", borderRadius: "50%", bottom: "-20%", left: "-5%",
+            background: "radial-gradient(circle, hsl(17 60% 47% / 0.14) 0%, transparent 65%)"
+          }} />
 
         {/* Ghost "CF" monogram */}
         <span className="absolute pointer-events-none select-none font-serif leading-none tracking-tighter"
-          style={{ fontSize: "clamp(120px, 28vw, 400px)", right: "-0.04em", bottom: "-0.15em",
-            color: "hsl(var(--primary-foreground)/0.02)", letterSpacing: "-0.05em" }}>
+          style={{
+            fontSize: "clamp(120px, 28vw, 400px)", right: "-0.04em", bottom: "-0.15em",
+            color: "hsl(var(--primary-foreground)/0.02)", letterSpacing: "-0.05em"
+          }}>
           CF
         </span>
 
@@ -152,14 +158,14 @@ export const CTASection = () => {
         </div>
 
         {/* ── Right side: 3D Model ── */}
-        <div 
+        <div
           className="absolute right-4 bottom-4 w-[150px] sm:w-[220px] md:w-[300px] h-[170px] sm:h-[260px] md:h-[360px] pointer-events-none z-20 overflow-visible"
         >
           {/* Inner glow for the model */}
-          <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/10 blur-[60px] pointer-events-none opacity-40" 
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/10 blur-[60px] pointer-events-none opacity-40"
           />
-          
+
           <Suspense fallback={null}>
             <ErrorBoundary fallback={null}>
               <Canvas
@@ -167,9 +173,9 @@ export const CTASection = () => {
                 gl={{ antialias: true, alpha: true }}
                 className="w-full h-full"
               >
-                <ModelViewer 
-                  modelPath="/models/newoutput.glb" 
-                  scale={0.85} 
+                <ModelViewer
+                  modelPath="/models/newoutput.glb"
+                  scale={0.85}
                   position={[0, -0.6, 0]}
                   rotation={[0, 0, 0]}
                 />

@@ -20,7 +20,7 @@ const MaskedWords = ({ text, className }: { text: string; className?: string }) 
 );
 
 export const Hero = () => {
-  const videoRef   = useRef<HTMLVideoElement>(null);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const rootRef    = useRef<HTMLElement>(null);
   const { introReady } = useSiteContext();
@@ -172,13 +172,9 @@ export const Hero = () => {
               willChange: "transform",
             }}
           >
-            <video
-              ref={videoRef}
-              src="/b_d_f_b_f_e_c_e_mp_.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img
+              src="/transition2.gif"
+              alt="Hero transition"
               className="w-full h-[420px] md:h-[560px] object-cover"
             />
             <div

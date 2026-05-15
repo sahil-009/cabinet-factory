@@ -4,10 +4,10 @@ import { RevealOnScroll } from "./RevealOnScroll";
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
-  { img: "/indian_kitchen.png",      title: "Modern Kitchen",        tag: "Kitchen",  span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
-  { img: "/indian_bedroom.png",      title: "Premium Wardrobe",      tag: "Wardrobe", span: "h-[220px]" },
-  { img: "/indian_workspace.png",    title: "Home Office",           tag: "Office",   span: "h-[220px]" },
-  { img: "/indian_living_room.png",  title: "Living Room Storage",   tag: "Custom",   span: "md:col-span-2 h-[220px]" },
+  { img: "/transition1.gif",       title: "Modern Kitchen",        tag: "Kitchen",  span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
+  { img: "/indian_bedroom.png",    title: "Premium Wardrobe",      tag: "Wardrobe", span: "h-[220px]" },
+  { img: "/indian_workspace.png",  title: "Home Office",           tag: "Office",   span: "h-[220px]" },
+  { img: "/indian_living_room.png",title: "Living Room Storage",   tag: "Custom",   span: "md:col-span-2 h-[220px]" },
 ];
 
 export const FeatureGrid = () => (
@@ -80,7 +80,7 @@ export const FeatureGrid = () => (
                 loading="lazy"
                 width={1024}
                 height={1024}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-smooth group-hover:scale-[1.06]"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-1200 ease-smooth group-hover:scale-[1.06]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/0 to-foreground/0" />
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
