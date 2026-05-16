@@ -33,9 +33,9 @@ interface Particle {
   opacity: number;
 }
 
-const PARTICLES: Particle[] = Array.from({ length: 32 }, (_, i) => {
+const PARTICLES: Particle[] = Array.from({ length: 18 }, (_, i) => {
   const r = (n: number) => sr(i * 11 + n * 7 + 3);
-  const isSticker = i < 16;
+  const isSticker = i < 9;
   const layer = Math.floor(r(9) * 3) as 0 | 1 | 2;
   const duration = 15 + r(2) * 18;
   const rotStart = r(5) * 360;
@@ -63,6 +63,7 @@ const PARTICLES: Particle[] = Array.from({ length: 32 }, (_, i) => {
 const PARALLAX_PX = [38, 20, 9];
 
 export const FloatingParticles = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const layer0Ref = useRef<HTMLDivElement>(null);
   const layer1Ref = useRef<HTMLDivElement>(null);
   const layer2Ref = useRef<HTMLDivElement>(null);
@@ -73,6 +74,10 @@ export const FloatingParticles = () => {
     const cx = [0, 0, 0];
     const cy = [0, 0, 0];
     let rafId: number;
+    let visible = true;
+
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    if (containerRef.current) io.observe(containerRef.current);
 
     const onMove = (e: MouseEvent) => {
       tx = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -80,6 +85,7 @@ export const FloatingParticles = () => {
     };
 
     const tick = () => {
+      if (!visible) { rafId = requestAnimationFrame(tick); return; }
       for (let l = 0; l < 3; l++) {
         const s = PARALLAX_PX[l];
         cx[l] += (tx * s - cx[l]) * 0.055;
@@ -95,11 +101,12 @@ export const FloatingParticles = () => {
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafId);
+      io.disconnect();
     };
   }, []);
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div ref={containerRef} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {([0, 1, 2] as const).map((layer) => (
         <div
           key={layer}

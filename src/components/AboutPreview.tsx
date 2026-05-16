@@ -42,6 +42,10 @@ export const AboutPreview = () => {
     resize();
     window.addEventListener("resize", resize);
 
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
+
     /* Warm palette helpers */
     const wood  = (a: number) => `rgba(139,107,71,${a})`;
     const terra = (a: number) => `rgba(190,100,60,${a})`;
@@ -80,6 +84,7 @@ export const AboutPreview = () => {
     }));
 
     const draw = () => {
+      if (!visible) { raf = requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, W, H);
 
       /* Orbs */
@@ -135,6 +140,7 @@ export const AboutPreview = () => {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      io.disconnect();
     };
   }, []);
 
@@ -145,6 +151,10 @@ export const AboutPreview = () => {
 
     let tx = 0, ty = 0, cx = 0, cy = 0;
     let raf: number;
+    let visible = true;
+
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    io.observe(section);
 
     const onMove = (e: MouseEvent) => {
       const rect = section.getBoundingClientRect();
@@ -153,6 +163,7 @@ export const AboutPreview = () => {
     };
 
     const tick = () => {
+      if (!visible) { raf = requestAnimationFrame(tick); return; }
       cx += (tx - cx) * 0.055;
       cy += (ty - cy) * 0.055;
       if (imgParallaxRef.current)
@@ -167,6 +178,7 @@ export const AboutPreview = () => {
     return () => {
       section.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
+      io.disconnect();
     };
   }, []);
 

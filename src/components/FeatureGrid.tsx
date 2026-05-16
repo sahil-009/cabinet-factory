@@ -4,7 +4,7 @@ import { RevealOnScroll } from "./RevealOnScroll";
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
-  { img: "/transition1.gif",       title: "Modern Kitchen",        tag: "Kitchen",  span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
+  { img: "/indian_kitchen.png",     title: "Modern Kitchen",        tag: "Kitchen",  span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
   { img: "/indian_bedroom.png",    title: "Premium Wardrobe",      tag: "Wardrobe", span: "h-[220px]" },
   { img: "/indian_workspace.png",  title: "Home Office",           tag: "Office",   span: "h-[220px]" },
   { img: "/indian_living_room.png",title: "Living Room Storage",   tag: "Custom",   span: "md:col-span-2 h-[220px]" },

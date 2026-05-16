@@ -18,6 +18,7 @@ export const Hero3DBackground = () => {
     let raf: number;
     let W = 0;
     let H = 0;
+    let visible = true;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
@@ -30,12 +31,19 @@ export const Hero3DBackground = () => {
     resize();
     window.addEventListener("resize", resize);
 
+    // Pause animation when off-screen
+    const io = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
     /* ---- Palette ---- */
     const oliveAlpha = (a: number) => `rgba(108,130,74,${a})`;
     const terraAlpha = (a: number) => `rgba(190,100,60,${a})`;
 
     /* ---- Pre-allocate shapes (loop-recycled, never recreated) ---- */
-    const SHAPE_COUNT = 22;
+    const SHAPE_COUNT = 14;
     const shapes = Array.from({ length: SHAPE_COUNT }, (_, i) => ({
       x: Math.random(),                          // 0-1 fraction of W
       y: Math.random(),                          // 0-1 fraction of H
@@ -50,8 +58,8 @@ export const Hero3DBackground = () => {
     }));
 
     /* ---- Pre-allocate grid lines ---- */
-    const GRID_ROWS = 14;
-    const GRID_COLS = 18;
+    const GRID_ROWS = 10;
+    const GRID_COLS = 12;
 
     /* ---- Helpers (no allocations) ---- */
     const drawHex = (r: number) => {
@@ -68,6 +76,7 @@ export const Hero3DBackground = () => {
     let t = 0;
 
     const draw = () => {
+      if (!visible) { raf = requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, W, H);
       t += 1;
 
@@ -175,6 +184,7 @@ export const Hero3DBackground = () => {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      io.disconnect();
     };
   }, []);
 

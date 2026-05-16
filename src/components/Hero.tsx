@@ -104,7 +104,7 @@ export const Hero = () => {
       <Hero3DBackground />
       <FloatingParticles />
 
-      <div className="container relative pt-10 pb-20 md:pt-20 md:pb-32 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div className="container relative pt-16 pb-28 md:pt-28 md:pb-44 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
 
         {/* ── Left: Text ── */}
         <div>
@@ -172,9 +172,12 @@ export const Hero = () => {
               willChange: "transform",
             }}
           >
-            <img
-              src="/transition2.gif"
-              alt="Hero transition"
+            <video
+              src="/hero.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-[420px] md:h-[560px] object-cover"
             />
             <div
