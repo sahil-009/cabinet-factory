@@ -22,11 +22,11 @@ const STICKERS = [
   {
     src: "/sticker_table.png",
     alt: "Side table",
-    pos: "top-[48%] left-[4%] sm:left-[5%] md:left-[8%] hidden sm:block", 
+    pos: "top-[48%] left-[4%] sm:left-[5%] md:left-[8%] hidden sm:block",
     size: "w-14 sm:w-32 md:w-40",
     rotate: 2,
     fromX: -40, fromY: 0,
-    floatY: 8,  floatDur: 3.6,
+    floatY: 8, floatDur: 3.6,
   },
   {
     src: "/sticker_lamp.png",
@@ -35,7 +35,7 @@ const STICKERS = [
     size: "w-16 sm:w-28 md:w-36",
     rotate: -2,
     fromX: -30, fromY: 40,
-    floatY: -6,  floatDur: 5.0,
+    floatY: -6, floatDur: 5.0,
   },
   {
     src: "/sticker_chair.png",
@@ -43,7 +43,7 @@ const STICKERS = [
     pos: "top-[18%] right-[10%] sm:right-[10%] md:right-[15%]", // Added gap
     size: "w-20 sm:w-40 md:w-48",
     rotate: 4,
-    fromX: 30,  fromY: -20,
+    fromX: 30, fromY: -20,
     floatY: -8, floatDur: 4.6,
   },
   {
@@ -52,8 +52,8 @@ const STICKERS = [
     pos: "top-[45%] right-[6%] sm:right-[5%] md:right-[8%] hidden md:block",
     size: "w-20 sm:w-32 md:w-40",
     rotate: -3,
-    fromX: 40,  fromY: 0,
-    floatY: 6,   floatDur: 3.8,
+    fromX: 40, fromY: 0,
+    floatY: 6, floatDur: 3.8,
   },
   {
     src: "/sticker_vase.png",
@@ -61,8 +61,8 @@ const STICKERS = [
     pos: "bottom-[16%] right-[14%] sm:right-[12%] md:right-[18%]", // Added gap
     size: "w-14 sm:w-24 md:w-32",
     rotate: 2,
-    fromX: 30,  fromY: 40,
-    floatY: -5,  floatDur: 4.0,
+    fromX: 30, fromY: 40,
+    floatY: -5, floatDur: 4.0,
   },
   {
     src: "/sticker_bed.png",
@@ -70,15 +70,15 @@ const STICKERS = [
     pos: "bottom-[0%] sm:bottom-[-2%] left-0 right-0 mx-auto", // Lowered slightly for gap
     size: "w-40 sm:w-56 md:w-72 lg:w-[28rem]",
     rotate: 0,
-    fromX: 0,    fromY: 20,
-    floatY: -6,  floatDur: 5.5,
+    fromX: 0, fromY: 20,
+    floatY: -6, floatDur: 5.5,
   },
 ];
 
 export const ReadyToTransform = () => {
   const location = useLocation();
-  const sectionRef  = useRef<HTMLElement>(null);
-  const headingRef  = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
   const stickerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {

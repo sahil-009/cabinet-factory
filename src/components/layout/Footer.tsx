@@ -9,19 +9,19 @@ import ErrorBoundary from "../ErrorBoundary";
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks: [string, string][] = [
-  ["Designs",      "/products"],
-  ["Features",     "/process"],
-  ["Materials",    "/about"],
+  ["Designs", "/products"],
+  ["Features", "/process"],
+  ["Materials", "/about"],
   ["Testimonials", "/about#testimonials"],
-  ["Our Story",    "/about"],
-  ["Careers",      "/contact"],
+  ["Our Story", "/about"],
+  ["Careers", "/contact"],
 ];
 
 const contactItems = [
   { Icon: MapPin, text: "Bengaluru, Karnataka, India" },
-  { Icon: Phone,  text: "+91 98765 43210" },
-  { Icon: Mail,   text: "hello@cabinetfactory.in" },
-  { Icon: Clock,  text: "Mon – Sat, 9am – 7pm" },
+  { Icon: Phone, text: "+91 98765 43210" },
+  { Icon: Mail, text: "hello@cabinetfactory.in" },
+  { Icon: Clock, text: "Mon – Sat, 9am – 7pm" },
 ];
 
 const socialLinks = [
@@ -51,10 +51,10 @@ export const Footer = () => {
   const location = useLocation();
   const footerRef = useRef<HTMLElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
-  const col1Ref   = useRef<HTMLDivElement>(null);
-  const col2Ref   = useRef<HTMLDivElement>(null);
-  const col3Ref   = useRef<HTMLDivElement>(null);
-  const col4Ref   = useRef<HTMLDivElement>(null);
+  const col1Ref = useRef<HTMLDivElement>(null);
+  const col2Ref = useRef<HTMLDivElement>(null);
+  const col3Ref = useRef<HTMLDivElement>(null);
+  const col4Ref = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -2,15 +2,15 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export const CustomCursor = () => {
-  const dotRef  = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const pos     = useRef({ x: -100, y: -100 });
-  const cur     = useRef({ x: -100, y: -100 });
+  const pos = useRef({ x: -100, y: -100 });
+  const cur = useRef({ x: -100, y: -100 });
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
-    const dot  = dotRef.current!;
+    const dot = dotRef.current!;
     const ring = ringRef.current!;
 
     gsap.set([dot, ring], { xPercent: -50, yPercent: -50 });
@@ -31,7 +31,7 @@ export const CustomCursor = () => {
       const t = e.target as HTMLElement;
       if (t.closest("a, button, [role='button'], input, textarea, select, label, [data-cursor='pointer']")) {
         gsap.to(ring, { scale: 1.7, borderColor: "#f2cc7a", opacity: 0.9, duration: 0.25, ease: "power2.out" });
-        gsap.to(dot,  { scale: 0.3, duration: 0.2 });
+        gsap.to(dot, { scale: 0.3, duration: 0.2 });
       }
     };
 
@@ -39,26 +39,26 @@ export const CustomCursor = () => {
       const to = e.relatedTarget as HTMLElement | null;
       if (!to?.closest("a, button, [role='button'], input, textarea, select, label, [data-cursor='pointer']")) {
         gsap.to(ring, { scale: 1, borderColor: "#d4713e", opacity: 0.55, duration: 0.3, ease: "power2.out" });
-        gsap.to(dot,  { scale: 1, duration: 0.2 });
+        gsap.to(dot, { scale: 1, duration: 0.2 });
       }
     };
 
-    const onDown  = () => gsap.to(ring, { scale: 0.8, duration: 0.1 });
-    const onUp    = () => gsap.to(ring, { scale: 1,   duration: 0.15 });
+    const onDown = () => gsap.to(ring, { scale: 0.8, duration: 0.1 });
+    const onUp = () => gsap.to(ring, { scale: 1, duration: 0.15 });
 
-    window.addEventListener("mousemove",  onMove);
-    document.addEventListener("mouseover",  onOver);
-    document.addEventListener("mouseout",   onOut);
-    window.addEventListener("mousedown",  onDown);
-    window.addEventListener("mouseup",    onUp);
+    window.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
 
     return () => {
       gsap.ticker.remove(ticker);
-      window.removeEventListener("mousemove",  onMove);
-      document.removeEventListener("mouseover",  onOver);
-      document.removeEventListener("mouseout",   onOut);
-      window.removeEventListener("mousedown",  onDown);
-      window.removeEventListener("mouseup",    onUp);
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
     };
   }, []);
 

@@ -16,9 +16,9 @@ const transformations = [
     description: "From dated interiors to a sophisticated, modern living space with custom built-in cabinetry.",
   },
   {
-    before: "/before-room.jpg",
+    before: "/kitchen_before.png",
     after: "/pic2.jpeg",
-    beforeAlt: "Kitchen before renovation",
+    beforeAlt: "Kitchen space before renovation",
     afterAlt: "Premium kitchen after Cabinet Factory renovation",
     label: "Kitchen Redesign",
     description: "A complete kitchen overhaul featuring precision-crafted cabinets and premium finishes.",
@@ -34,9 +34,9 @@ const transformations = [
 ];
 
 export const BeforeAfterSection = () => {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const headingRef  = useRef<HTMLDivElement>(null);
-  const cardsRef    = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
