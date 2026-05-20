@@ -10,31 +10,32 @@ const steps = [
     n: "01",
     title: "Post Design Consultation",
     text: "We finalize spatial layouts, configurations and technical specifications after the design review.",
-    img: "/new-images/_ (1).jpeg",
+    img: "/pic3.jpeg",
   },
   {
     n: "02",
     title: "Material Selection",
     text: "Hand-pick premium veneers, custom paints, finishes and luxury hardware from our library.",
-    img: "/new-images/latest kitchen tiles design indian style.jpeg",
+    img: "/indian_materials.png",
   },
   {
     n: "03",
     title: "Production Design and Cutlist",
     text: "Millimeter-perfect 3D CAD modeling and automated cutlist generation for the factory floor.",
-    img: "/new-images/_.jpeg",
+    img: "/new-images/Modern Modular Kitchen Design _ LED Lighting & Sleek Finish.jpeg",
   },
   {
     n: "04",
     title: "Manufacturing",
     text: "Calibrated CNC carcass cutting, seamless edge-banding and meticulous hand-joinery.",
-    img: "/new-images/kitchen cabinet.jpeg",
+    img: "/pic8.jpeg",
+
   },
   {
     n: "05",
     title: "Dispatch",
     text: "Rigorous quality inspection, custom crating and white-glove transport to your site.",
-    img: "/new-images/_ (3).jpeg",
+    img: "/new-images/_ (2).jpeg",
   },
 ];
 
