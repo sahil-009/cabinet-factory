@@ -9,13 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const craft  = "/new-images/_ (2).jpeg";
 const factory = "/new-images/_ (4).jpeg";
-const island  = "/new-images/_ (5).jpeg";
+const island  = "/new-images/_ (6).jpeg";
 
 const team = [
-  { name: "Inês Carvalho",  role: "Founder & Design Lead" },
-  { name: "Rui Soares",     role: "Master Joiner" },
-  { name: "Marta Lopes",    role: "Materials & Finishes" },
-  { name: "André Pinto",    role: "Production Manager" },
+  { name: "Abhinandan Belagur",  role: "Founder & Design Lead" },
+  { name: "Raju Bhai",     role: "Master Joiner" },
+  { name: "Younus",    role: "Materials & Finishes" },
+  { name: "Rohit",    role: "Production Manager" },
+  
+
 ];
 
 const stats = [

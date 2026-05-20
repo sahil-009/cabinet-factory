@@ -23,14 +23,6 @@ const transformations = [
     label: "Kitchen Redesign",
     description: "A complete kitchen overhaul featuring precision-crafted cabinets and premium finishes.",
   },
-  {
-    before: "/bedroom1.png",
-    after: "/bedroomafter.png",
-    beforeAlt: "Bedroom before renovation",
-    afterAlt: "Elegant bedroom after Cabinet Factory renovation",
-    label: "Bedroom Makeover",
-    description: "Custom wardrobes and storage solutions that transform the entire bedroom experience.",
-  },
 ];
 
 export const BeforeAfterSection = () => {
@@ -126,7 +118,7 @@ export const BeforeAfterSection = () => {
           />
         </div>
 
-        <div ref={cardsRef} className="mt-14 grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+        <div ref={cardsRef} className="mt-14 grid md:grid-cols-2 gap-8">
           {transformations.map((t) => (
             <div
               key={t.label}
