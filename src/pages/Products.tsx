@@ -7,14 +7,15 @@ import gsap from "gsap";
 type Cat = "All" | "Kitchen Cabinets" | "Wardrobes" | "Office Cabinets" | "Custom Storage";
 
 const products: { img: string; title: string; cat: Exclude<Cat, "All">; tag: string }[] = [
-  { img: "/indian_kitchen.png",      title: "Modern Kitchen Suite",        cat: "Kitchen Cabinets", tag: "Bespoke"  },
-  { img: "/pic1.jpeg",               title: "Modular Kitchen Island",      cat: "Kitchen Cabinets", tag: "Modular"  },
-  { img: "/indian_bedroom.png",      title: "Premium Walk-in Wardrobe",    cat: "Wardrobes",        tag: "Bespoke"  },
-  { img: "/indian_workspace.png",    title: "Executive Office",            cat: "Office Cabinets",  tag: "Bespoke"  },
-  { img: "/indian_living_room.png",  title: "Living Storage Wall",         cat: "Custom Storage",   tag: "Modular"  },
-  { img: "/pic2.jpeg",               title: "Pantry Cabinet System",       cat: "Kitchen Cabinets", tag: "Premium"  },
-  { img: "/pic3.jpeg",               title: "Master Dressing Room",        cat: "Wardrobes",        tag: "Premium"  },
-  { img: "/indian_decor_accents.png",title: "Library Wall System",         cat: "Custom Storage",   tag: "Bespoke"  },
+  { img: "/new-images/29 Modern Kitchen Design Ideas for Sleek Contemporary Living - Spesh View.jpeg", title: "Modern Kitchen Suite",        cat: "Kitchen Cabinets", tag: "Bespoke"  },
+  { img: "/new-images/Modern Modular Kitchen Design _ LED Lighting & Sleek Finish.jpeg",               title: "Modular Kitchen Island",      cat: "Kitchen Cabinets", tag: "Modular"  },
+  { img: "/new-images/Modern Arch Wardrobe Design_ Luxury Built-in Closet with Integrated Desk.jpeg",    title: "Premium Walk-in Wardrobe",    cat: "Wardrobes",        tag: "Bespoke"  },
+  { img: "/new-images/_ (6).jpeg",                                                                     title: "Executive Workspace",         cat: "Office Cabinets",  tag: "Bespoke"  },
+  { img: "/new-images/“This TV Unit Design Will Make Your Living Room Look 10x Richer 😍✨”.jpeg",      title: "Tv units",         cat: "Custom Storage",   tag: "Modular"  },
+  { img: "/new-images/Save Money by Shopping in your own Pantry.jpeg",                                 title: "Pantry Cabinet System",       cat: "Kitchen Cabinets", tag: "Premium"  },
+  { img: "/new-images/24 Idées de Penderie Chambre pour un Rangement Tendance et Optimal - inspivie.jpeg", title: "Master Dressing Room",        cat: "Wardrobes",        tag: "Premium"  },
+  { img: "/new-images/How To Choose the Perfect Small Bathroom Vanity for Style & Function.jpeg",      title: "Luxury Bathroom Vanity",      cat: "Custom Storage",   tag: "Bespoke"  },
+  { img: "/new-images/Wash basin design.jpeg",                                                         title: "Bespoke Wash Basin Unit",     cat: "Custom Storage",   tag: "Bespoke"  }
 ];
 
 const cats: Cat[] = ["All", "Kitchen Cabinets", "Wardrobes", "Office Cabinets", "Custom Storage"];

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "./RevealOnScroll";
 import { useEffect, useRef, useState } from "react";
 
-const craft = "/indian_furniture.png";
+const craft = "/new-images/_ (1).jpeg";
 
 const FEATURES = [
   "FSC-certified hardwoods",

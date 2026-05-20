@@ -8,27 +8,33 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
   {
     n: "01",
-    title: "Design Consultation",
-    text: "We visit, listen, measure — translating your brief into a clear concept.",
-    img: "/pic3.jpeg",
+    title: "Post Design Consultation",
+    text: "We finalize spatial layouts, configurations and technical specifications after the design review.",
+    img: "/new-images/_ (1).jpeg",
   },
   {
     n: "02",
     title: "Material Selection",
-    text: "Hand-pick veneers, finishes and hardware in our material library.",
-    img: "/indian_materials.png",
+    text: "Hand-pick premium veneers, custom paints, finishes and luxury hardware from our library.",
+    img: "/new-images/latest kitchen tiles design indian style.jpeg",
   },
   {
     n: "03",
-    title: "Manufacturing",
-    text: "CNC precision meets hand finishing in our climate-controlled atelier.",
-    img: "/pic8.jpeg",
+    title: "Production Design and Cutlist",
+    text: "Millimeter-perfect 3D CAD modeling and automated cutlist generation for the factory floor.",
+    img: "/new-images/_.jpeg",
   },
   {
     n: "04",
-    title: "Installation",
-    text: "White-glove install by our master fitters — leaving only the result.",
-    img: "/pic9.jpeg",
+    title: "Manufacturing",
+    text: "Calibrated CNC carcass cutting, seamless edge-banding and meticulous hand-joinery.",
+    img: "/new-images/kitchen cabinet.jpeg",
+  },
+  {
+    n: "05",
+    title: "Dispatch",
+    text: "Rigorous quality inspection, custom crating and white-glove transport to your site.",
+    img: "/new-images/_ (3).jpeg",
   },
 ];
 
@@ -105,10 +111,10 @@ export const ProcessSteps = () => {
         <SectionHeading
           eyebrow="The Process"
           title="From first sketch to finished room."
-          subtitle="A calm, considered four-step journey — designed to feel as refined as the result."
+          subtitle="A calm, considered five-step journey — designed to feel as refined as the result."
         />
 
-        <div ref={cardsRef} className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div ref={cardsRef} className="mt-14 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {steps.map((s) => (
             <div
               key={s.n}

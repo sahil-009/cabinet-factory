@@ -7,9 +7,9 @@ import { CTASection } from "@/components/CTASection";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const craft  = "/indian_materials.png";
-const factory = "/indian_dining.png";
-const island  = "/indian_decor_accents.png";
+const craft  = "/new-images/_ (2).jpeg";
+const factory = "/new-images/_ (4).jpeg";
+const island  = "/new-images/_ (5).jpeg";
 
 const team = [
   { name: "Inês Carvalho",  role: "Founder & Design Lead" },

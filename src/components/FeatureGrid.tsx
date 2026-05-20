@@ -4,10 +4,10 @@ import { RevealOnScroll } from "./RevealOnScroll";
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
-  { img: "/indian_kitchen.png",     title: "Modern Kitchen",        tag: "Kitchen",  span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
-  { img: "/indian_bedroom.png",    title: "Premium Wardrobe",      tag: "Wardrobe", span: "h-[220px]" },
-  { img: "/indian_workspace.png",  title: "Home Office",           tag: "Office",   span: "h-[220px]" },
-  { img: "/indian_living_room.png",title: "Living Room Storage",   tag: "Custom",   span: "md:col-span-2 h-[220px]" },
+  { img: "/new-images/29 Modern Kitchen Design Ideas for Sleek Contemporary Living - Spesh View.jpeg", title: "Modern Kitchen", tag: "Kitchen", span: "md:col-span-2 md:row-span-2 h-[440px] md:h-full" },
+  { img: "/new-images/Modern Arch Wardrobe Design_ Luxury Built-in Closet with Integrated Desk.jpeg", title: "Premium Wardrobe", tag: "Wardrobe", span: "h-[220px]" },
+  { img: "/new-images/_ (6).jpeg", title: "Home Office", tag: "Office", span: "h-[220px]" },
+  { img: "/new-images/“This TV Unit Design Will Make Your Living Room Look 10x Richer 😍✨”.jpeg", title: "Tv Unit", tag: "Custom", span: "md:col-span-2 h-[220px]" },
 ];
 
 export const FeatureGrid = () => (
@@ -65,15 +65,15 @@ export const FeatureGrid = () => (
           title="Cabinetry, considered."
           subtitle="A curated look at recent commissions across kitchens, wardrobes and bespoke storage."
         />
-        <Link to="/projects" className="text-sm font-medium hover:text-accent transition-colors inline-flex items-center gap-1">
-          View all projects <ArrowUpRight className="h-4 w-4" />
+        <Link to="/products" className="text-sm font-medium hover:text-accent transition-colors inline-flex items-center gap-1">
+          View all designs <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
 
       <div className="grid md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-5">
         {items.map((it, i) => (
           <RevealOnScroll key={it.title} delay={i * 80} className={it.span}>
-            <Link to="/projects" className="group relative block overflow-hidden rounded-2xl shadow-soft h-full">
+            <Link to="/products" className="group relative block overflow-hidden rounded-2xl shadow-soft h-full">
               <img
                 src={it.img}
                 alt={it.title}

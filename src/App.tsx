@@ -11,7 +11,6 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Products from "./pages/Products.tsx";
 import Process from "./pages/Process.tsx";
-import Projects from "./pages/Projects.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -46,7 +45,6 @@ const InnerApp = () => {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/process" element={<Process />} />
-            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

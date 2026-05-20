@@ -4,13 +4,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { ModelViewer, preloadModel } from "./ModelViewer";
-import ErrorBoundary from "./ErrorBoundary";
 
 gsap.registerPlugin(ScrollTrigger);
-preloadModel("/models/newoutput.glb");
 
 export const CTASection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,7 +66,7 @@ export const CTASection = () => {
     <section ref={sectionRef} className="container py-20 md:py-28">
       <div
         ref={cardRef}
-        className="relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground p-10 pb-32 md:p-16 shadow-elegant"
+        className="relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground p-10 md:p-16 shadow-elegant"
         style={{ opacity: 0 }}
       >
         {/* Animated orbs */}
@@ -155,33 +150,6 @@ export const CTASection = () => {
               <Link to="/process">See How It Works</Link>
             </Button>
           </div>
-        </div>
-
-        {/* ── Right side: 3D Model ── */}
-        <div
-          className="absolute right-4 bottom-4 w-[150px] sm:w-[220px] md:w-[300px] h-[170px] sm:h-[260px] md:h-[360px] pointer-events-none z-20 overflow-visible"
-        >
-          {/* Inner glow for the model */}
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-accent/10 blur-[60px] pointer-events-none opacity-40"
-          />
-
-          <Suspense fallback={null}>
-            <ErrorBoundary fallback={null}>
-              <Canvas
-                camera={{ fov: 40, position: [2, 1, 5] }}
-                gl={{ antialias: true, alpha: true }}
-                className="w-full h-full"
-              >
-                <ModelViewer
-                  modelPath="/models/newoutput.glb"
-                  scale={0.85}
-                  position={[0, -0.6, 0]}
-                  rotation={[0, 0, 0]}
-                />
-              </Canvas>
-            </ErrorBoundary>
-          </Suspense>
         </div>
       </div>
     </section>

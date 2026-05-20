@@ -6,7 +6,6 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { PageTransition } from "@/components/PageTransition";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { ReadyToTransform } from "@/components/ReadyToTransform";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useLenis } from "@/hooks/use-lenis";
 
@@ -30,7 +29,6 @@ export const SiteLayout = ({ children }: { children: React.ReactNode }) => {
         <main key={pathname} className="flex-1 pt-24">
           {children}
         </main>
-        <ReadyToTransform />
         <Footer />
         <WhatsAppButton />
       </ErrorBoundary>

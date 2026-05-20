@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const transformations = [
   {
     before: "/before-room.jpg",
-    after: "/pic5.jpeg",
+    after: "/new-images/“This TV Unit Design Will Make Your Living Room Look 10x Richer 😍✨”.jpeg",
     beforeAlt: "Room before renovation",
     afterAlt: "Stunning living room after Cabinet Factory renovation",
     label: "Living Room Transformation",
@@ -17,7 +17,7 @@ const transformations = [
   },
   {
     before: "/pic2.2.png",
-    after: "/pic2.jpeg",
+    after: "/new-images/Modern Modular Kitchen Design _ LED Lighting & Sleek Finish.jpeg",
     beforeAlt: "Kitchen before renovation",
     afterAlt: "Premium kitchen after Cabinet Factory renovation",
     label: "Kitchen Redesign",
@@ -25,7 +25,7 @@ const transformations = [
   },
   {
     before: "/bedroom1.png",
-    after: "/bedroomafter.png",
+    after: "/new-images/Modern Arch Wardrobe Design_ Luxury Built-in Closet with Integrated Desk.jpeg",
     beforeAlt: "Bedroom before renovation",
     afterAlt: "Elegant bedroom after Cabinet Factory renovation",
     label: "Bedroom Makeover",
