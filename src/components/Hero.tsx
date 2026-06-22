@@ -173,7 +173,7 @@ export const Hero = () => {
             }}
           >
             <video
-              src="/hero.webm"
+              src="/hero1.webm"
               autoPlay
               loop
               muted

@@ -13,6 +13,7 @@ import Products from "./pages/Products.tsx";
 import Process from "./pages/Process.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ExpressDelivery from "./pages/ExpressDelivery.tsx";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const InnerApp = () => {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/process" element={<Process />} />
+            <Route path="/express-delivery" element={<ExpressDelivery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
