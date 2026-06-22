@@ -21,7 +21,7 @@ const team = [
 ];
 
 const stats = [
-  ["22+", "Years of craft"],
+  ["8+", "Years of craft"],
   ["1.4k", "Homes furnished"],
   ["38",   "Master artisans"],
   ["12",   "Cities served"],

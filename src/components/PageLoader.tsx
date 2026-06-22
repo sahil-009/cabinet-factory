@@ -161,7 +161,7 @@ export const PageLoader = ({ onReady, onComplete }: Props) => {
       <div className="px-[4vw] pb-5 flex items-end justify-between gap-6">
         <div className="flex items-center gap-8 md:gap-12">
           {[
-            { v: "22+",  l: "Years of craft" },
+            { v: "8+",  l: "Years of craft" },
             { v: "1.4K", l: "Homes furnished" },
             { v: "38",   l: "Master artisans" },
           ].map((s) => (

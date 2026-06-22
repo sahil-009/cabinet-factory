@@ -123,7 +123,7 @@ export const CTASection = () => {
 
           {/* Stats row */}
           <div className="mt-8 flex flex-wrap gap-8 text-sm text-primary-foreground/60">
-            {[["22+", "Years of craft"], ["1.4k", "Homes furnished"], ["38", "Artisans"]].map(([v, l]) => (
+            {[["8+", "Years of craft"], ["1.4k", "Homes furnished"], ["38", "Artisans"]].map(([v, l]) => (
               <div key={l}>
                 <span className="font-serif text-2xl text-primary-foreground/90">{v} </span>
                 <span>{l}</span>

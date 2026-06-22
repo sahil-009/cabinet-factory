@@ -141,7 +141,7 @@ export const Hero = () => {
 
           <div className="mt-12 flex items-center gap-8 text-sm text-muted-foreground">
             <div className="hero-stat opacity-0">
-              <div className="font-serif text-3xl text-foreground">22+</div>
+              <div className="font-serif text-3xl text-foreground">8+</div>
               <div>Years of craft</div>
             </div>
             <div className="h-10 w-px bg-border hero-stat opacity-0" />
